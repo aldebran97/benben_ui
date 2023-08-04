@@ -35,6 +35,14 @@ class TextUtils {
             }
             return sb.toString()
         }
+
+        fun lastIndexOf(strings: Collection<String>, input: String): Int {
+            return mutableListOf<Int>().apply {
+                strings.forEach {
+                    this.add(input.lastIndexOf(it))
+                }
+            }.max()
+        }
     }
 
 

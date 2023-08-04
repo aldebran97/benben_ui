@@ -17,7 +17,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.benben_front.HelloControllerTest">
+      fx:controller="com.example.benben_front.HelloControllerActual">
     <stylesheets>
         <URL value="@all.css"/>
     </stylesheets>
@@ -39,7 +39,7 @@
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="无"/>
                     <String fx:value="poems"/>
-                    <String fx:value="wiki_interesting_data"/>
+                    <String fx:value="wiki_interesting_lib"/>
                 </FXCollections>
             </items>
         </ComboBox>
