@@ -73,7 +73,7 @@ fun WebService.Companion.tts(text: String, audioFile: File) {
 //    ).let { it.execute().body() }
     post(Constants.TTS_URL,
             JSONObject().apply {
-                this["text"] = text
+                this["text"] = text.replace("犇", "奔").replace("🐂", "")
                 this["output_file"] = audioFile.absolutePath
             }.let { JSON.toJSONString(it) }
     )

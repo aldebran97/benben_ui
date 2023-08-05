@@ -27,12 +27,25 @@ class TextUtils {
 
         fun historyToHtml(history: List<List<String>>): String {
             val sb = StringBuilder()
+            sb.append("""
+                <script>
+                    function scrollToBottom() {
+                        window.scrollTo(0, document.body.scrollHeight);
+                    }
+                    history.scrollRestoration = "manual";
+                    window.onload = scrollToBottom;
+                </script>
+            """.trimIndent())
+            sb.append("""
+                <div class="wrapper">
+            """.trimIndent())
             for (list in history) {
                 var question = list[0].replace("\n", "<br/>")
                 var answer = list[1].replace("\n", "<br/>").replace("🐂", "")
                 sb.append(meBlockTemplate.replace("CONTENT", question))
                 sb.append(benbenBlockTemplate.replace("CONTENT", answer))
             }
+            sb.append("""</div>""")
             return sb.toString()
         }
 
@@ -43,6 +56,7 @@ class TextUtils {
                 }
             }.max()
         }
+
     }
 
 

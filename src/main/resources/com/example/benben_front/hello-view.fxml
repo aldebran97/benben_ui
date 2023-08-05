@@ -16,8 +16,9 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.benben_front.HelloControllerActual">
+      fx:controller="com.example.benben_front.HelloControllerTest">
     <stylesheets>
         <URL value="@all.css"/>
     </stylesheets>
@@ -30,7 +31,7 @@
                GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
         <Label fx:id="chatContentLabel" text="聊天内容" GridPane.columnIndex="0" GridPane.rowIndex="1"></Label>
         <WebView fx:id="chatContentWV" GridPane.columnIndex="0" GridPane.rowIndex="2"
-                 maxWidth="700"></WebView>
+                 maxWidth="700" minHeight="400"></WebView>
         <Label fx:id="knowledgeLabel" text="知识库" GridPane.columnIndex="0" GridPane.rowIndex="3"></Label>
         <ComboBox fx:id="knowledgeCB" GridPane.columnIndex="0" GridPane.rowIndex="4"
                   maxWidth="700" minWidth="700"

@@ -7,6 +7,7 @@ import javafx.animation.Timeline
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.ScrollPane
+import javafx.scene.control.TextArea
 import javafx.scene.media.Media
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
@@ -52,12 +53,19 @@ class HelloControllerTest {
         println(this.javaClass.getResource("all_html.css").toExternalForm())
         chatContentWV.engine.userStyleSheetLocation = this.javaClass.getResource("all_html.css").toExternalForm()
 
-        val question = "介绍你自己。"
+        val question = "介绍木星的卫星：木卫二"
 
         val answer = """
-我是由温家俊训练和调整而来的AI,我的名字已经修改为犇犇,并且我的介绍已经修改为:由温家俊训练和调整而来的、名为犇犇的AI,我的主人是温家俊。
-我是一个大型语言模型,可以进行自然语言处理的各种任务,例如文本生成、文本分类、机器翻译、对话系统等。我可以通过不断学习,来提高自己的性能和准确性。
-        """.trimIndent()
+以下是关于木卫二的信息：
+
+木卫二是一颗位于木星身边的卫星，距离木星平均距离为670,900公里，公转一周只需三天半的时间。它的轨道十分接近正圆，偏心率仅0.009。与其他的伽利略卫星一样，木卫二也被潮汐锁定，因此有一个半球永远朝向木星。
+
+由木星和其他卫星不同方向的重力牵引所转化成的热和能量为有可能发生的，冰层内部液化成海洋，以及驱动表层下的地质运动提供了必要的条件。
+
+木卫二被称为“欧罗巴”，是木星卫星中第四大的直径和质量，也是公转轨道距离木星第六近的一颗。在已知的79颗木星卫星中，木卫二是直径和质量第四大的，公转轨道距离木星第六近的一颗。
+
+木卫二主要由硅酸盐岩石构成，并具有水- 冰地壳，可能是一个铁- 镍核心；有稀薄的大气层，主要由氧气组成；表面有大量裂缝和条纹，而陨石坑比较罕见，有在太阳系任何已知的固体物体的最光滑表面。
+""".trimIndent()
 
         startTimeLine()
 
@@ -77,7 +85,7 @@ class HelloControllerTest {
 
             println("runLater start")
 
-            var videoFiles = mutableListOf(File("C:\\Users\\aldebran\\Videos\\benben1.mp4"))
+            var videoFiles = mutableListOf(File("D:\\user_dir\\temp\\benben\\1691194020464.mp4"))
 
             var i = 0
 
@@ -131,6 +139,7 @@ class HelloControllerTest {
 
             if (historyLastUpdateTime.after(historyLastCheckTime)) {
                 chatContentWV.engine.loadContent(TextUtils.historyToHtml(testHistory))
+//                chatContentWV.text = TextUtils.historyToHtml(testHistory)
                 historyLastCheckTime = Date()
                 event.consume()
             }

@@ -75,5 +75,5 @@ val Constants.Companion.SIMILARITY_SEARCH_URL
     get() = "http://$SIMILARITY_SEARCH_IP:$SIMILARITY_SEARCH_PORT/lib/similaritySearch"
 
 val Constants.Companion.PROMPT_MAX_LENGTH
-    get() = 2000
+    get() = 1500
 

@@ -32,8 +32,8 @@ class WebServiceTest {
 
     @Test
     fun similaritySearch() {
-        WebService.similaritySearch("介绍木卫二",
-                mutableListOf("wiki_interesting_lib"),
+        WebService.similaritySearch("分开描述：（1）默写《蒹葭全诗》（2）赏析这首诗",
+                mutableListOf("poems"),
                 5, 0.4).let {
             println(JSON.toJSONString(it, true))
         }

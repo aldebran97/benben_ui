@@ -6,10 +6,14 @@ import javafx.animation.Animation
 import javafx.animation.KeyFrame
 import javafx.animation.Timeline
 import javafx.application.Platform
+import javafx.beans.value.ChangeListener
+import javafx.beans.value.ObservableValue
+import javafx.concurrent.Worker
 import javafx.fxml.FXML
 import javafx.scene.control.ComboBox
 import javafx.scene.control.ScrollPane
 import javafx.scene.control.TextField
+import javafx.scene.input.TouchPoint
 import javafx.scene.media.Media
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
@@ -65,12 +69,13 @@ class HelloControllerActual {
     @FXML
     private fun clickSubmit() {
         println("clickSubmit start")
-        println("!!!")
         var id = System.currentTimeMillis()
         var audioFile = File(Constants.TEMP_FOLDER, "$id.wav")
         var videoFile = File(Constants.TEMP_FOLDER, "$id.mp4")
         println(this.javaClass.getResource("all_html.css").toExternalForm())
         chatContentWV.engine.userStyleSheetLocation = this.javaClass.getResource("all_html.css").toExternalForm()
+
+        // 分要点介绍木星的卫星：木卫二
 
         var question = inputTF.text
         var libName = knowledgeCB.value
@@ -127,6 +132,8 @@ class HelloControllerActual {
                 Thread.sleep(100)
                 historyLastUpdateTime = Date()
             }
+            history.last()[1] += """<br/> 来源: $sources"""
+            historyLastUpdateTime = Date()
             stopStatus = true
 
 
@@ -139,6 +146,7 @@ class HelloControllerActual {
 
     @FXML
     fun initialize() {
+        scrollPane.vvalue = 1.0
     }
 
     fun startTimeLine() {
@@ -153,6 +161,7 @@ class HelloControllerActual {
 
             if (historyLastUpdateTime.after(historyLastCheckTime)) {
                 chatContentWV.engine.loadContent(TextUtils.historyToHtml(history))
+                chatContentWV.engine.executeScript("window.scrollTo(0, 2000);")
                 historyLastCheckTime = Date()
                 event.consume()
             }

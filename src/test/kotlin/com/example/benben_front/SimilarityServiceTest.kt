@@ -13,7 +13,7 @@ class SimilarityServiceTest {
 
     @Test
     fun getPrompt() {
-        SimilarityService.getPrompt("介绍木卫二",
-                mutableListOf("wiki_interesting_lib"));
+        SimilarityService.getPrompt("（1）默写蒹葭全诗（2）赏析这首诗",
+                mutableListOf("poems"));
     }
 }

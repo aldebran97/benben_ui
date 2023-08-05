@@ -40,6 +40,8 @@ fun SimilarityService.Companion.getPrompt(query: String,
         if (index != -1) {
             resultString = resultString.substring(0, index)
         }
+    } else {
+        resultString = sb.toString()
     }
 
     if (result.isEmpty()) {
